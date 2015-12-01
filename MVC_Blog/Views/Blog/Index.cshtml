@@ -1,0 +1,22 @@
+﻿@using RepoBlog.Models.BaseModels
+@using RepoBlog.Models.ViewModels
+@model List<BlogIndex>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@foreach (BlogIndex bi in Model)
+{
+    <h3>@bi.Post.Overskrift</h3>
+    <p>@bi.Post.Tekst</p>
+    <br/>
+    foreach (Billede b in bi.Billeder)
+    {
+         @b.Filnavn
+     }
+    <hr/>
+}
